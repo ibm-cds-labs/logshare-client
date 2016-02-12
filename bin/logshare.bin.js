@@ -1,13 +1,14 @@
 #!/usr/bin/env node
 var logshare = 'https://logshare.mybluemix.net';
+var logshare = 'http://localhost:6020';
 var stdin = process.stdin;
 var URL = require('url');
 var request = require('request');
 
 
 var kill = function(id) {
-  var url = logshare + '/stop';
-  request({url: url, method: 'get', qs: {id: id} }, function(e, r, b) {
+  var url = logshare + '/stop/' + id;
+  request({url: url, method: 'get'}, function(e, r, b) {
     process.exit();
   });
 };
@@ -56,20 +57,21 @@ if (stdin.isTTY) {
 } else {
   var liner = require('../lib/liner.js');
   var objectifier = require('../lib/objectifier.js')
-
+  
   // create a new logshare service
   var url = logshare + '/start'
+  
   request.get(url, function(err, res, body) {
     if (err) {
       console.error("Could not contact the logshare server");
       process.exit(1);
     }
     body=JSON.parse(body);
-    var writer = require('../lib/writer.js')(body.dburl, body.dbname);
+
+    var writer = require('../lib/writer.js')(body.id, logshare);
     stdin.resume();  
     stdin.pipe(liner).pipe(objectifier).pipe(writer);
     console.log("Share URL:", body.shareurl);
-  
 
     process.on('SIGINT', function() {
       kill(body.id)

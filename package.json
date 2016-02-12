@@ -4,9 +4,7 @@
   "description": "Simple log-sharing command-line utility",
   "dependencies": {
     "request": "^2.69.0",
-    "minimist": "^1.2.0",
-    "cloudant": "^1.4.1",        
-    "async": "^1.5.2"
+    "minimist": "^1.2.0"
   },
   "repository": {
     "type": "git",
