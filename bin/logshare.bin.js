@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 var logshare = 'https://logshare.mybluemix.net';
-var logshare = 'http://localhost:6020';
 var stdin = process.stdin;
 var URL = require('url');
 var request = require('request');
