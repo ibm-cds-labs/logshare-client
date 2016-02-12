@@ -25,33 +25,20 @@ if (stdin.isTTY) {
   if (argv._.length == 0) {
     usage();
   } 
-  var param = argv._[0];
-  var parsed =  URL.parse(param);
-  var queryurl = null;
+  var token = argv._[0];
+  var parsed =  URL.parse(token);
   if (parsed.protocol && parsed.pathname && parsed.pathname.match(/share\/.+/)) {
-    parsed.pathname = parsed.pathname.replace(/\/share\//, '/monitor/');
-    queryurl = URL.format(parsed);
-  } else {
-    queryurl = logshare + '/monitor/' + param;
+    token = token.substr( token.lastIndexOf('/') + 1);
   }
 
-  request.get(queryurl, function(err, res, body) {
-    if (err) {
-      console.error("Invalid share url or token");
-      usage();
-    }
-    body = JSON.parse(body);
-    if (!body.dbname || !body.dburl) {
-      console.error("Invalid share url or token");
-      usage();
-    }
-    var cloudant = require('cloudant')(body.dburl);
-    var mydb = cloudant.db.use(body.dbname)
-    var feed = mydb.follow({ since: 'now', include_docs:true});
-    feed.on('change', function (change) {
-      console.log(change.doc.body);
-    });
-    feed.follow();
+  var socket = require('socket.io-client')(logshare);
+  socket.emit('subscribe', { id: token});
+  socket.on('data', function(data){
+    console.log(data);
+  });
+  socket.on('baddata', function(message){
+    console.error("Invalid token");
+    process.exit(1);
   });
 
 } else {
