@@ -1,0 +1,21 @@
+{
+  "name": "logshare",
+  "version": "0.1.2",
+  "description": "Simple log-sharing command-line utility",
+  "dependencies": {
+    "request": "^2.69.0",
+    "minimist": "^1.2.0",
+    "cloudant": "^1.4.1",        
+    "async": "^1.5.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/glynnbird/logshare-client"
+  },
+  "engines": {
+    "node": "0.12.x"
+  },
+  "bin": {
+    "logshare": "bin/logshare.bin.js"
+  }
+}
