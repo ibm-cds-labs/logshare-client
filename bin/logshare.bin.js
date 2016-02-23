@@ -47,9 +47,6 @@ if (stdin.isTTY) {
 
 } else {
   var argv = require('minimist')(process.argv.slice(2));
-  console.log(argv);
-  
-  
   var liner = require('../lib/liner.js');
   var objectifier = require('../lib/objectifier.js')
   

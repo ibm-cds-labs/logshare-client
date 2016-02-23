@@ -31,6 +31,15 @@ to consume the stream of logs at their terminal.
 
 When `logshare` is killed, it deletes the data you streamed to it.
 
+## Options
+
+When sharing a stream, you can also direct the stream to your terminal by adding the `-f` command-line switch e.g.
+
+    >tail -f /var/log/system.log | logshare -f
+    Share URL: https://logshare.mybluemix.net/share/kkdgapgdx
+    2016-01-01 Log Messages appear here
+    2016-01-01 and here
+
 ## Live Demo
 
 Visit [https://logshare.mybluemix.net](https://logshare.mybluemix.net) for a live demo.
