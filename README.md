@@ -46,4 +46,4 @@ Visit [https://logshare.mybluemix.net](https://logshare.mybluemix.net) for a liv
 
 ## What is this code?
 
-This is the command-line client code for `logshare`. The server-side code lives in a [separate repository](https://github.com/glynnbird/logshare-server).sh 
+This is the command-line client code for `logshare`. The server-side code lives in a [separate repository](https://github.com/glynnbird/logshare-server). 
