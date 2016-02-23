@@ -1,6 +1,6 @@
 {
   "name": "logshare",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Simple log-sharing command-line utility",
   "dependencies": {
     "minimist": "^1.2.0",
