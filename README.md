@@ -40,6 +40,11 @@ When sharing a stream, you can also direct the stream to your terminal by adding
     2016-01-01 Log Messages appear here
     2016-01-01 and here
 
+If you wish to use a *logshare* server other than "https://logshare.mybluemix.net", then you can specify it with an environment variable "LOGSHARE":
+
+    export LOGSHARE=http://localhost:6020
+
+
 ## Live Demo
 
 Visit [https://logshare.mybluemix.net](https://logshare.mybluemix.net) for a live demo.

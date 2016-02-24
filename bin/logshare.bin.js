@@ -1,9 +1,8 @@
 #!/usr/bin/env node
-var logshare = 'https://logshare.mybluemix.net';
+var logshare = process.env.LOGSHARE || 'https://logshare.mybluemix.net';
 var stdin = process.stdin;
 var URL = require('url');
 var request = require('request');
-
 
 var kill = function(id) {
   var url = logshare + '/stop/' + id;
