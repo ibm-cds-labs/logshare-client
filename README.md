@@ -13,7 +13,7 @@ Simple log-sharing utility built with Node.js and Cloudant.
 
 Put the URL in your browser and share it with the people you want to share your data with.
 
-![Demo](https://github.com/glynnbird/logshare/raw/master/public/img/demo.gif)
+![Demo](https://raw.githubusercontent.com/ibm-cds-labs/logshare-server/master/public/img/demo.gif)
 
 Alternatively, they can run logshare too like this:
 
@@ -51,4 +51,4 @@ Visit [https://logshare.mybluemix.net](https://logshare.mybluemix.net) for a liv
 
 ## What is this code?
 
-This is the command-line client code for `logshare`. The server-side code lives in a [separate repository](https://github.com/glynnbird/logshare-server). 
+This is the command-line client code for `logshare`. The server-side code lives in a [separate repository](https://github.com/ibm-cds-labs/logshare-server). 
