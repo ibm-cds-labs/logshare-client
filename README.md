@@ -29,11 +29,11 @@ to consume the stream of logs at their terminal.
   
     Ctrl-C
 
-When `logshare` is killed, it deletes the data you streamed to it.
+When `logshare` is killed not further data can be streamed to that channel.
 
 ## Options
 
-When sharing a stream, you can also direct the stream to your terminal by adding the `-f` command-line switch e.g.
+When sharing a stream, you can also view the stream on your terminal by adding the `-f` command-line switch e.g.
 
     >tail -f /var/log/system.log | logshare -f
     Share URL: https://logshare.mybluemix.net/share/kkdgapgdx
@@ -52,3 +52,9 @@ Visit [https://logshare.mybluemix.net](https://logshare.mybluemix.net) for a liv
 ## What is this code?
 
 This is the command-line client code for `logshare`. The server-side code lives in a [separate repository](https://github.com/ibm-cds-labs/logshare-server). 
+
+## Privacy and data retention
+
+This project makes no guarantees as to the privacy of the data that you stream to logshare. If you are using https://logshare.mybluemix.net then the data is encrypted between the producer and server, and between the server and the consumers. There is no authentication mechanism to prevent an unknown third party observing your data stream, if they can guess the nine-digit session token. So don’t consider it safe for confidential data. It is designed to relay streaming data across development teams temporarily, not for anything you wouldn’t want others to see.
+
+This project does not store your data at any time. Log data goes to a Redis pubsub channel and then relays immediately to any connected clients who have subscribed to that session. The data is then discarded, with only meta data about the session (the number of lines of data and the number of bytes of data received) being retained.
